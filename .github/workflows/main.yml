@@ -28,6 +28,9 @@ jobs:
     code-check:
         runs-on: ubuntu-latest
         timeout-minutes: 15
+        permissions:
+          contents: read
+          pull-requests: write
         steps:
             - uses: actions/checkout@v4
             - name: 'Install Node'
@@ -37,4 +40,9 @@ jobs:
             - name: 'Install Deps'
               run: npm install
             - name: 'Check'
-              run: npm run check:all
+              uses: mongolyy/reviewdog-action-biome@v1
+              with:
+                github_token: ${{ secrets.github_token }}
+                reporter: github-pr-review
+                level: error
+                fail_level: error
