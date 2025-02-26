@@ -6,9 +6,7 @@ export default async function Sample() {
 	console.log('json placeholderのデータ', data);
 	return (
 		<div className="text-white">
-			<div>
-				{data?.title}
-			</div>
+			<div>{data?.title}</div>
 
 			{data === null && (
 				<div>
