@@ -18,13 +18,7 @@ export async function fetchHello() {
 		console.log('catchしたエラー', error);
 		if (axios.isAxiosError(error)) {
 			return { data: null, error };
-		} else if (error instanceof TypeError) {
-			console.log('TypeErrorをキャッチしました', error);
-			return {
-				data: null,
-				error: { status: 'typeerror', message: error.message },
-			};
-		}
+		} 
 		console.log('予測しないエラーをキャッチしました', error);
 
 		throw { data: null, error };

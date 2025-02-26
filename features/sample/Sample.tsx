@@ -7,7 +7,7 @@ export default async function Sample() {
 	return (
 		<div className="text-white">
 			<div>
-				<>{data?.title}</>
+				{data?.title}
 			</div>
 
 			{data === null && (
