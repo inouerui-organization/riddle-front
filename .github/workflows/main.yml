@@ -44,4 +44,4 @@ jobs:
               with:
                 version: latest
             - name: 'Check'
-              run: biome check --reporter=github
+              run: biome ci --reporter=github
