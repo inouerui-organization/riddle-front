@@ -39,8 +39,9 @@ jobs:
                   node-version: '20.x'
             - name: 'Install Deps'
               run: npm install
-            - name: 'Check'
-              uses: mongolyy/reviewdog-action-biome@v1
+            - name: Setup Biome
+              uses: biomejs/setup-biome@v2
               with:
-                github_token: ${{ secrets.github_token }}
-                reporter: github-pr-review
+                version: latest
+            - name: 'Check'
+              run: biome check --reporter=github
