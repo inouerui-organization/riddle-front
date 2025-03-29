@@ -1,10 +1,13 @@
+import { Suspense } from 'react';
 import PuzzleContainer from './_container/PuzzleContainer/PuzzleContainer';
 
-export default async function Home() {
+export default function Home() {
     return (
         <div>
             <h1>謎作成</h1>
-            <PuzzleContainer />
+            <Suspense fallback={<div>load</div>}>
+                <PuzzleContainer />
+            </Suspense>
         </div>
     );
 }
